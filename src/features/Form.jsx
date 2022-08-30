@@ -1,13 +1,11 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { useDispatch } from "react-redux";
-import nextId from "react-id-generator";
+
+
 import { addTodo } from "../redux/modules/todos";
 
 const Form = () => {
-  const id = nextId();
-
-  const dispatch = useDispatch();
+ 
   const [todo, setTodo] = useState({
     id: 0,
     title: "",
@@ -25,13 +23,6 @@ const Form = () => {
     event.preventDefault();
     if (todo.title.trim() === "" || todo.body.trim() === "") return;
 
-    dispatch(addTodo({ ...todo, id }));
-    setTodo({
-      id: 0,
-      title: "",
-      body: "",
-      isDone: false,
-    });
   };
 
   return (
